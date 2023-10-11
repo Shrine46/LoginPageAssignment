@@ -1,0 +1,85 @@
+<QuizManager>:
+    LoginScreen:
+        name: "login"
+    LogoutScreen:
+        name: "logout"
+    NewAccount:
+        name: "create"
+
+<LoginScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "Put in your username and password"
+        TextInput:
+            text: "Username"
+            id: answer1
+            size_hint: .5, .1
+            pos_hint: {"center_x":0.5}
+        TextInput:
+            text: "Password"
+            id: answer2
+            size_hint: .5, .1
+            pos_hint: {"center_x":0.5}
+        Button:
+            text: "Enter"
+            size_hint: .5, .1
+            pos_hint: {"center_x":0.5}
+            on_release: root.answer_question(answer1.text,answer2.text)
+        Button:
+            text: "Create New Account"
+            size_hint: .5, .1
+            pos_hint: {"center_x":0.5}
+            on_release: root.create_account()
+        Label:
+            id: test
+            text: ""
+
+<LogoutScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "You're logged in!"
+        Button:
+            text: "Logout"
+            size_hint: .5, .1
+            pos_hint: {"center_x":0.5}
+            on_release: root.logout()
+
+<NewAccount>
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 10
+        Label:
+            text: "Create a new account"
+        TextInput:
+            text: "Username"
+            id: pass1
+            size_hint: .5, .15
+            pos_hint: {"center_x":0.5}
+        TextInput:
+            text: "Password"
+            id: pass2
+            size_hint: .5, .15
+            pos_hint: {"center_x":0.5}
+        TextInput:
+            text: "Matching Password"
+            id: pass3
+            size_hint: .5, .15
+            pos_hint: {"center_x":0.5}
+        Label:
+            pos_hint: {"center_x":0.5}
+            size_hint: .5,.4
+            font_size: 10
+            text: "\n Password mush contain at least one of each:\n -Capitalized letter\n -Lower case letter\n -Number\n -Special Character\n -Passwords must be at least 8 letters in length\n -There must be no spaces"
+        Button:
+            text: "Enter"
+            size_hint: .5, .1
+            pos_hint: {"center_x":0.5}
+            on_release: root.password_check(pass1.text,pass2.text,pass3.text)
+        Label:
+            id: test
+            text: ""
+
